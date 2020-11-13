@@ -1,0 +1,45 @@
+import com.cognizant.model.Cliente;
+
+global com.cognizant.model.VeiculoSugerido veiculoSugerido;
+
+dialect  "mvel"
+
+rule "Sugerir Veiculo Ford Ka"
+    when
+        $cliente: Cliente(idade > 18 && idade < 30)
+        Cliente(genero == 'Feminino')
+        Cliente(salario	 > 3000 && salario <= 10000)
+    then
+    	veiculoSugerido.setNome($cliente.getNome());
+        veiculoSugerido.setVeiculo("Ford Ka");
+end
+
+rule "Sugerir Veiculo Ford Ka Sedan"
+    when
+        $cliente: Cliente(idade > 31 && idade <= 40)
+        Cliente(genero == 'Feminino')
+        Cliente(salario	 > 10000 && salario <= 15000)
+    then
+        veiculoSugerido.setNome($cliente.getNome());
+        veiculoSugerido.setVeiculo("Ford Ka Sedan");
+end
+
+rule "Sugerir Veiculo Ford Ecosport"
+    when
+        $cliente: Cliente(idade > 31 && idade <= 40)
+        Cliente(genero == 'Masculino')
+        Cliente(salario	 > 10000 && salario <= 20000)
+    then
+        veiculoSugerido.setNome($cliente.getNome());
+        veiculoSugerido.setVeiculo("Ford Ecosport");
+end
+
+rule "Sugerir Veiculo Ford Territory"
+    when
+        $cliente: Cliente(idade > 31 && idade <= 40)
+        Cliente(genero == 'Masculino')
+        Cliente(salario	 > 20000 && salario <= 50000)
+    then
+        veiculoSugerido.setNome($cliente.getNome());
+        veiculoSugerido.setVeiculo("Ford Territory");
+end
